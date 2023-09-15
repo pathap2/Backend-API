@@ -30,6 +30,10 @@ namespace TodoList.Api.Tests
             _controller = new TodoItemsController(_repositoryMock.Object, _loggerMock.Object);
         }
 
+        /// <summary>
+        ///  test case for whethere all TODO list return results
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task GetTodoItems_ReturnsOk()
         {
@@ -38,7 +42,10 @@ namespace TodoList.Api.Tests
             var result = await _controller.GetAllTodoItems();
             Assert.IsType<OkObjectResult>(result);
         }
-
+        /// <summary>
+        /// This test case is to test whether perticular TODO Item returns from the list via API if it exists
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task GetTodoItem_ReturnsOk_WhenTodoExists()
         {
@@ -48,7 +55,10 @@ namespace TodoList.Api.Tests
             var result = await _controller.GetTodoItem(todoItemDTO.Id);
             Assert.IsType<OkObjectResult>(result);
         }
-
+        /// <summary>
+        /// This test case is to test whether the TODO item doesn't exits in list
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task GetTodoItem_ReturnsNotFound_WhenTodoDoesNotExist()
         {
@@ -57,7 +67,11 @@ namespace TodoList.Api.Tests
             var result = await _controller.GetTodoItem(Guid.NewGuid());
             Assert.IsType<NotFoundResult>(result);
         }
-
+        /// <summary>
+        /// This is to test API will give a MISMATCH TODO Item error or bad request error since some one trying to Update list Via API which doesn't exists
+        /// In such case it will give bad request error.
+        /// </summary>
+        /// <returns>MISMATCH ID and Bad request error</returns>
         [Fact]
         public async Task UpdateTodoItem_ReturnsBadRequest_WhenIdsDoNotMatch()
         {
@@ -66,6 +80,11 @@ namespace TodoList.Api.Tests
             Assert.IsType<BadRequestObjectResult>(result);
         }
 
+        /// <summary>
+        /// This is to test API will give a MISMATCH TODO Item error or bad request error since some one trying to Update list Via API which doesn't exists
+        /// In such case it will give bad request error.
+        /// </summary>
+        /// <returns>MISMATCH TO Item and Bad request error</returns>
         [Fact]
         public async Task UpdateTodoItem_ReturnsNotFound_WhenTodoDoesNotExist()
         {
@@ -76,7 +95,10 @@ namespace TodoList.Api.Tests
 
             Assert.IsType<NotFoundResult>(result);
         }
-
+        /// <summary>
+        /// This test case is to test the POST request when w are trying to add TODO Item in a list
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task PostTodoItem_ReturnsCreatedAtAction_WhenValidTodoIsSupplied()
         {
@@ -99,7 +121,10 @@ namespace TodoList.Api.Tests
             // Assert
             Assert.IsType<BadRequestObjectResult>(result);
         }
-
+        /// <summary>
+        /// This Test case is to test when someone is trying to Add the TODO Item which is already exits in a list
+        /// </summary>
+        /// <returns></returns>
         [Fact]
         public async Task PostTodoItem_BadRequestObjectResult_WhenDescriptionAlreadyExists()
         {

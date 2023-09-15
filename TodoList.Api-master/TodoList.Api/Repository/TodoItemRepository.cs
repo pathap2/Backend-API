@@ -12,6 +12,10 @@ using TodoList.Api.Entities;
 
 namespace TodoList.Api.Repository
 {
+    /// <summary>
+    /// This repositry class gives the ability to interact with the database and makes CRUD operation.
+    /// It Isolates the data operation layer so facitilate other developer to work simultaninously.
+    /// </summary>
     public class TodoItemRepository : IRepository<TodoItem, TodoItemDTO>
     {
         private readonly TodoContext _context;
