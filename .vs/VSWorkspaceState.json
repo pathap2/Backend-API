@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\TodoList.Api-master",
+    "\\TodoList.Api-master\\TodoList.Api",
+    "\\TodoList.Api-master\\TodoList.Api.UnitTests",
+    "\\TodoList.Api-master\\TodoList.Api\\Context",
+    "\\TodoList.Api-master\\TodoList.Api\\Controllers",
+    "\\TodoList.Api-master\\TodoList.Api\\DTOs",
+    "\\TodoList.Api-master\\TodoList.Api\\Entities"
+  ],
+  "SelectedNode": "\\TodoList.Api-master\\TodoList.Api",
+  "PreviewInSolutionExplorer": false
+}
